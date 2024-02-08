@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "ODvgeOlFA0YLYM/ipq2ejOlQ98rf2XWKq4jl13cqRBU=",
+  "Source": "ClothesSalePlatform",
+  "BasePath": "_content/ClothesSalePlatform",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ClothesSalePlatform\\wwwroot",
+      "Source": "ClothesSalePlatform",
+      "ContentRoot": "C:\\Users\\MSI\\OneDrive\\Desktop\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\",
+      "BasePath": "_content/ClothesSalePlatform",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
