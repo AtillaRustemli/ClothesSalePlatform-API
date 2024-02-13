@@ -26,6 +26,8 @@ namespace ClothesSalePlatform.Configurations
                 .IsRequired(true);
             builder.Property(p=>p.StoreId)
                 .IsRequired(true);
+            builder.Property(p=>p.CategoryId)
+                .IsRequired(true);
             builder.HasData(
                 new Product
                 {
@@ -40,6 +42,7 @@ namespace ClothesSalePlatform.Configurations
                     GenderId=1,
                     StoreId=1,
                     IsDeleted=false,
+                    CategoryId=1
                 }
                 );
         }

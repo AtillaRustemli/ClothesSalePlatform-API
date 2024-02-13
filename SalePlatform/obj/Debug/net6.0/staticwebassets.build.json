@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ODvgeOlFA0YLYM/ipq2ejOlQ98rf2XWKq4jl13cqRBU=",
+  "Hash": "aevz3UfHuVqwY7qUDLM0WaNeAhOuiArr876mDD/2MkA=",
   "Source": "ClothesSalePlatform",
   "BasePath": "_content/ClothesSalePlatform",
   "Mode": "Default",
@@ -10,10 +10,30 @@
     {
       "Name": "ClothesSalePlatform\\wwwroot",
       "Source": "ClothesSalePlatform",
-      "ContentRoot": "C:\\Users\\MSI\\OneDrive\\Desktop\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\",
       "BasePath": "_content/ClothesSalePlatform",
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\yellow-catton-tshirt.png",
+      "SourceId": "ClothesSalePlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\",
+      "BasePath": "_content/ClothesSalePlatform",
+      "RelativePath": "img/yellow-catton-tshirt.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\yellow-catton-tshirt.png"
+    }
+  ]
 }

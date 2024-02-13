@@ -12,6 +12,8 @@ namespace ClothesSalePlatform.Data
         public DbSet<Gender> Gender { get; set; }
         public DbSet<Store> Store { get; set; }
         public DbSet<Bio> Bio { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Size> Size { get; set; }
 
 
         public override int SaveChanges()

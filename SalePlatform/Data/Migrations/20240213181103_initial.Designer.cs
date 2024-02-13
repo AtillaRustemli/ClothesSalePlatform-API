@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClothesSalePlatform.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240212193656_addedConfigurations")]
-    partial class addedConfigurations
+    [Migration("20240213181103_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -232,7 +232,7 @@ namespace ClothesSalePlatform.Data.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Color")
@@ -292,6 +292,7 @@ namespace ClothesSalePlatform.Data.Migrations
                         {
                             Id = 1,
                             BrandId = 1,
+                            CategoryId = 1,
                             Color = "Black",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -303,6 +304,52 @@ namespace ClothesSalePlatform.Data.Migrations
                             ProductCount = 1,
                             SizeId = 1,
                             StoreId = 1,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("ClothesSalePlatform.Models.ProductImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductImages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImgUrl = "yellow-catton-tshirt.png",
+                            IsDeleted = false,
+                            ProductId = 1,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -469,9 +516,11 @@ namespace ClothesSalePlatform.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ClothesSalePlatform.Models.Category", null)
+                    b.HasOne("ClothesSalePlatform.Models.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ClothesSalePlatform.Models.Gender", "Gender")
                         .WithMany("Product")
@@ -493,11 +542,24 @@ namespace ClothesSalePlatform.Data.Migrations
 
                     b.Navigation("Brand");
 
+                    b.Navigation("Category");
+
                     b.Navigation("Gender");
 
                     b.Navigation("Size");
 
                     b.Navigation("Store");
+                });
+
+            modelBuilder.Entity("ClothesSalePlatform.Models.ProductImage", b =>
+                {
+                    b.HasOne("ClothesSalePlatform.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("ClothesSalePlatform.Models.Brand", b =>

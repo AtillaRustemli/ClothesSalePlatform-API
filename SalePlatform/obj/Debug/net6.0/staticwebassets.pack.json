@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ClothesSalePlatform.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ClothesSalePlatform.props",
+      "PackagePath": "build\\ClothesSalePlatform.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ClothesSalePlatform.props",
+      "PackagePath": "buildMultiTargeting\\ClothesSalePlatform.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ClothesSalePlatform.props",
+      "PackagePath": "buildTransitive\\ClothesSalePlatform.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
