@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClothesSalePlatform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ab4ddc516e92bf7058a61a8f28421b797933f5d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5369bf8bc61ddb1b0894912594b673259339c3db")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClothesSalePlatform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClothesSalePlatform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

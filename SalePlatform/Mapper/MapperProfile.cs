@@ -22,6 +22,11 @@ namespace ClothesSalePlatform.Mapper
             //CreateMap<AppUser, ReturnUserDto>();
             CreateMap<Product, ReturnProductDto>();
             CreateMap<Product, ReturnProductDto>();
+            CreateMap<Product, ReturnProductDto>();
+            CreateMap<Size, SizeInProductDTO>();
+            CreateMap<Brand, BrandInProductDTO>();
+            CreateMap<Gender, GenderInProductDTO>();
+            CreateMap<Store, StoreInProductDTO>();
         }
     }
 }

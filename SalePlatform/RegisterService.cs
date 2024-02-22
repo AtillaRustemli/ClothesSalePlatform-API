@@ -1,4 +1,5 @@
 ﻿using ClothesSalePlatform.Data;
+using ClothesSalePlatform.Mapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClothesSalePlatform
@@ -12,6 +13,10 @@ namespace ClothesSalePlatform
             services.AddDbContext<AppDbContext>(opt =>
             {
                 opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            });
+            services.AddAutoMapper(opt =>
+            {
+                opt.AddProfile(new MapperProfile());
             });
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
