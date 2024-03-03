@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using ClothesSalePlatform.Data;
 using ClothesSalePlatform.DTOs.ProductDTOs;
+using ClothesSalePlatform.Models;
+using ClothesSalePlatform.Services.ProductServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using static ClothesSalePlatform.DTOs.ProductDTOs.ReturnProductDto;
 
 namespace ClothesSalePlatform.Controllers
 {
@@ -13,29 +16,20 @@ namespace ClothesSalePlatform.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IProductService _productService;
 
-        public ProductController(AppDbContext context, IMapper mapper)
+        public ProductController(AppDbContext context, IMapper mapper, IProductService productService)
         {
             _context = context;
             _mapper = mapper;
+            _productService = productService;
         }
 
         [HttpGet]
-       public IActionResult GetAll()
+       public IActionResult GetAll(int take=3,int page=1,string? search=null)
         {
-            var products=_context.Products
-                .Where(p=>!p.IsDeleted)
-                .Include(p=>p.Category)
-                .Include(p=>p.Brand)
-                .Include(p=>p.Size)
-                .Include(p=>p.Gender)
-                .Include(p=>p.Store)
-                .ToList();
-            var returnProductList = new ReturnProductListDto();
-            returnProductList.TotalCount= products.Count;
-            returnProductList.Items = _mapper.Map<List<ReturnProductDto>>(products);
-
-            return Ok(returnProductList);
+            var result=_productService.GetAll(page,take,search,_mapper);
+            return Ok(result);
         }
     }
 }

@@ -17,12 +17,16 @@ namespace ClothesSalePlatform.Mapper
 
         public MapperProfile()
         {
-            
-            CreateMap<Category, CategoryInProductDTO>();
             //CreateMap<AppUser, ReturnUserDto>();
-            CreateMap<Product, ReturnProductDto>();
-            CreateMap<Product, ReturnProductDto>();
-            CreateMap<Product, ReturnProductDto>();
+            
+            CreateMap<Product, ReturnProductDto>()
+                .ForMember(d=>d.brandInProductDTO,map=>map.MapFrom(src=>src.Brand))
+                .ForMember(d=>d.sizeInProductDTO,map=>map.MapFrom(src=>src.Size))
+                .ForMember(d => d.categoryInProductDTO, map => map.MapFrom(src => src.Category))
+                .ForMember(d=>d.genderInProductDTO,map=>map.MapFrom(src=>src.Gender))
+                .ForMember(d=>d.storeInProductDTO,map=>map.MapFrom(src=>src.Store))
+                ;
+            CreateMap<Category, CategoryInProductDTO>();
             CreateMap<Size, SizeInProductDTO>();
             CreateMap<Brand, BrandInProductDTO>();
             CreateMap<Gender, GenderInProductDTO>();

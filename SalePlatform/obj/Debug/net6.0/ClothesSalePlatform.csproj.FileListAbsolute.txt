@@ -135,3 +135,5 @@ C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatfo
 C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

@@ -1,9 +1,11 @@
 ﻿using ClothesSalePlatform.Models;
+using ClothesSalePlatform.Models.ReletionTables;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClothesSalePlatform.Data
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext: IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions options):base(options) { }
         public DbSet<Brand> Brand { get; set; }
@@ -14,6 +16,7 @@ namespace ClothesSalePlatform.Data
         public DbSet<Bio> Bio { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Size> Size { get; set; }
+        public DbSet<BrandStore> BrandStore { get; set; }
 
 
         public override int SaveChanges()

@@ -14,35 +14,30 @@
         public StoreInProductDTO storeInProductDTO { get; set; }
         public class CategoryInProductDTO
         {
-            public int Id { get; set; }
             public string Name { get; set; }
             public int ProductCount { get; set; }
 
         }
         public class SizeInProductDTO
         {
-            public int Id { get; set; }
             public string Name { get; set; }
             public int ProductCount { get; set; }
 
         }
         public class BrandInProductDTO
         {
-            public int Id { get; set; }
             public string Name { get; set; }
             public int ProductCount { get; set; }
 
         }
         public class GenderInProductDTO
         {
-            public int Id { get; set; }
             public string Name { get; set; }
             public int ProductCount { get; set; }
 
         }
         public class StoreInProductDTO
         {
-            public int Id { get; set; }
             public string Name { get; set; }
             public int ProductCount { get; set; }
 
