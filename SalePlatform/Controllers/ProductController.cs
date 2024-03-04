@@ -31,5 +31,23 @@ namespace ClothesSalePlatform.Controllers
             var result=_productService.GetAll(page,take,search,_mapper);
             return Ok(result);
         }
+        [HttpGet("{id?}")]
+       public IActionResult Get(int? id)
+        {
+           if(id == null) return BadRequest();
+            var product = _context.Products.
+                 Where(p => !p.IsDeleted)
+                 .Include(p => p.Size)
+                 .Include(p => p.Category)
+                 .Include(p => p.Brand)
+                 .Include(p => p.Store)
+                 .Include(p => p.Gender)
+
+                 .FirstOrDefault(p=>p.Id==id);
+            if(product == null) return NotFound();
+
+            var result = _mapper.Map<ReturnProductDto>(product);
+            return Ok(result);
+        }
     }
 }
