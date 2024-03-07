@@ -24,8 +24,6 @@ namespace ClothesSalePlatform.Services.ProductServices
                 .Include(p => p.Size)
                 .Include(p => p.Gender)
                 .Include(p => p.Store)
-                .Skip((page - 1) * take)
-                .Take(take)
                 .ToList();
             if (!string.IsNullOrEmpty(search))
             {
@@ -39,21 +37,57 @@ namespace ClothesSalePlatform.Services.ProductServices
             var returnProductList = new ReturnProductListDto();
             returnProductList.TotalCount = products.Count;
             returnProductList.Items = _mapper.Map<List<ReturnProductDto>>(products);
+            returnProductList.Items=returnProductList.Items
+                .Skip((page - 1) * take)
+                .Take(take)
+                .ToList();
             return returnProductList;
         }
-        public ReturnProductListDto Create(CreateProductDto createProductDto, IMapper _mapper)
+        public int Create(CreateProductDto createProductDto, IMapper _mapper)
+        {
+
+            if (createProductDto == null) return 404;
+            var product = _mapper.Map<Product>(createProductDto);
+            if(createProductDto.ProductCount > 0)
+                product.InStock= true;
+            else
+                product.InStock= false;
+
+
+            
+            _context.Products.Add(product);
+            _context.SaveChanges();
+          
+
+            return 201;
+        }
+
+        public int Delete(int? id)
         {
             throw new NotImplementedException();
         }
 
-        public ReturnProductListDto Delete(int? id)
+        public ReturnProductDto Get(int? id, IMapper _mapper)
         {
-            throw new NotImplementedException();
-        }
+            
+            var product = _context.Products.
+                 Where(p => !p.IsDeleted)
+                 .Include(p => p.Size)
+                 .ThenInclude(p => p.Product)
+                 .Include(p => p.Category)
+                 .ThenInclude(pc => pc.Products)
+                 .Include(p => p.Brand)
+                 .ThenInclude(p => p.Products)
+                 .Include(p => p.Store)
+                 .ThenInclude(p => p.Products)
+                 .Include(p => p.Gender)
+                 .ThenInclude(p => p.Product)
 
-        public ReturnProductListDto Get(int? id, IMapper _mapper)
-        {
-            throw new NotImplementedException();
+                 .FirstOrDefault(p => p.Id == id);
+            if (product == null) return null;
+
+            var result = _mapper.Map<ReturnProductDto>(product);
+            return result;
         }
 
     }

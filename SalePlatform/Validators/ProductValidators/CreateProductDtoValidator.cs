@@ -12,7 +12,9 @@ namespace ClothesSalePlatform.Validators.ProductValidators
             RuleFor(p=>p.Color)
                 .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
             RuleFor(p=>p.Price)
-                .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
+                //.Must(BeInteger).WithMessage("Eded Olmalidir")
+                .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!")
+                ;
             RuleFor(p=>p.ProductCount)
                 .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
             RuleFor(p=>p.CategoryId)
@@ -26,5 +28,7 @@ namespace ClothesSalePlatform.Validators.ProductValidators
             RuleFor(p=>p.GenderId)
                 .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
         }
+
+      
     }
 }

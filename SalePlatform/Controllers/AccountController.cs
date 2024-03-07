@@ -38,7 +38,7 @@ namespace ClothesSalePlatform.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll(string? search=null)
+        public IActionResult GetAll(string? search=null)
         {
             var users = _userManager.Users.ToList();
             if (!string.IsNullOrEmpty(search))

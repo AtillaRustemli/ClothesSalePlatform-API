@@ -2,6 +2,7 @@
 using ClothesSalePlatform.Models.ReletionTables;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace ClothesSalePlatform.Data
 {
@@ -43,11 +44,24 @@ namespace ClothesSalePlatform.Data
             return base.SaveChanges();
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
             //modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
-            base.OnModelCreating(modelBuilder);
+
+            builder.Entity<Product>()
+          .HasOne(p => p.Brand)          
+          .WithMany(b => b.Products)     
+          .HasForeignKey(p => p.BrandId) 
+          .IsRequired();
+            builder.Entity<Brand>()
+          .HasMany(p => p.Products)          
+          .WithOne(b => b.Brand)     
+          .HasForeignKey(p => p.BrandId) 
+          .IsRequired();
+
+
+            builder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
+            base.OnModelCreating(builder);
         }
 
     }
