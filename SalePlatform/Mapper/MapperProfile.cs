@@ -56,6 +56,7 @@ namespace ClothesSalePlatform.Mapper
             CreateMap<Gender, GenderInProductDTO>();
             //CreateMap<Store, StoreInProductDTO>();
             CreateMap<CreateProductDto, Product>();
+            CreateMap<UpdateProductDto, Product>();
         }
     }
 }

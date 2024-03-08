@@ -42,11 +42,24 @@ namespace ClothesSalePlatform.Controllers
             var result=_productService.Get(id,_mapper);
             return Ok(result);
         }
-        [HttpPost]
+        [HttpPost("Create")]
         public IActionResult Create(CreateProductDto createProductDto)
         {
             var result=_productService.Create(createProductDto,_mapper);
             return StatusCode(result) ;
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int? id)
+        {
+            var results=_productService.Delete(id);
+            return StatusCode(results);
+        }
+        [HttpPut("Update/{id?}")]
+        public IActionResult Update(UpdateProductDto updateProductDto,int?id)
+        {
+            var result= _productService.Update(updateProductDto,id,_mapper);
+            return StatusCode(result);
         }
     }
 }

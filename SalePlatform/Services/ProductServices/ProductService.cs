@@ -64,7 +64,14 @@ namespace ClothesSalePlatform.Services.ProductServices
 
         public int Delete(int? id)
         {
-            throw new NotImplementedException();
+
+            if (id == null) return 400;
+          var product=_context.Products.FirstOrDefault(p=>p.Id==id);
+            if (product == null) return 404;
+            product.IsDeleted = true;
+            product.DeletedAt = DateTime.Now;
+            _context.SaveChanges();
+            return 204;
         }
 
         public ReturnProductDto Get(int? id, IMapper _mapper)
@@ -90,5 +97,17 @@ namespace ClothesSalePlatform.Services.ProductServices
             return result;
         }
 
+        public int Update(UpdateProductDto udateProductDto, int?id,IMapper _mapper)
+        {
+            if (udateProductDto is null) return 400;
+            if (id is null) return 400;
+            var product=_context.Products.Where(p=>!p.IsDeleted).FirstOrDefault(p => p.Id == id);
+            if (product is null) return 404;
+            if (udateProductDto.ProductCount == 0) udateProductDto.InStock = false;
+            _mapper.Map(udateProductDto, product);
+            _context.SaveChanges();
+
+            return 202;
+        }
     }
 }

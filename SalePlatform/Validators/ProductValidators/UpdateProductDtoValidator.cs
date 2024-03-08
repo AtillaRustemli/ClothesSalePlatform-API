@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace ClothesSalePlatform.Validators.ProductValidators
 {
-    public class CreateProductDtoValidator:AbstractValidator<CreateProductDto>
+    public class UpdateProductDtoValidator:AbstractValidator<UpdateProductDto>
     {
-        public CreateProductDtoValidator()
+        public UpdateProductDtoValidator()
         {
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
@@ -28,14 +28,11 @@ namespace ClothesSalePlatform.Validators.ProductValidators
                 .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
             RuleFor(p => p.GenderId)
                 .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
-            //RuleForEach(p => new string[]{ p.Name, p.Color})
-            //.NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
-            //RuleForEach(p => new int[]{ p.ProductCount, p.CategoryId, p.SizeId, p.StoreId, p.BrandId, p.GenderId })
-            //.NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
-            //RuleFor(p=> p.Price)
-            //.NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
+            RuleFor(p => p.InStock)
+                .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!");
         }
 
-      
+
+
     }
 }
