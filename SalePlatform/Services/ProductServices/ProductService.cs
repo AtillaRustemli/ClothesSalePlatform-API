@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using ClothesSalePlatform.Data;
 using ClothesSalePlatform.DTOs.ProductDTOs;
+using ClothesSalePlatform.Helpers.Extensions;
 using ClothesSalePlatform.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClothesSalePlatform.Services.ProductServices
@@ -43,7 +45,7 @@ namespace ClothesSalePlatform.Services.ProductServices
                 .ToList();
             return returnProductList;
         }
-        public int Create(CreateProductDto createProductDto, IMapper _mapper)
+        public int Create( CreateProductDto createProductDto, IMapper _mapper)
         {
 
             if (createProductDto == null) return 404;
@@ -52,10 +54,35 @@ namespace ClothesSalePlatform.Services.ProductServices
                 product.InStock= true;
             else
                 product.InStock= false;
+            int count = 0;
+            _context.Products.Add(product);
+            _context.SaveChanges();
+            foreach (var photo in createProductDto.Photos)
+            {
+                count++;
+                if (photo.CheckImage("image") && !photo.CheckSize(1000)) return 400;
+              
 
+                var productImage = new ProductImage()
+                {
+                    ImgUrl = photo.SaveImage("wwwroot/img"),
+                    ProductId = product.Id
+                };
+                if (count ==1)
+                {
+                    productImage.IsMain = true;
+                }
+                else
+                {
+                    productImage.IsMain = false;
+                }
+
+                _context.ProductImages.Add(productImage);
+
+
+            }
 
             
-            _context.Products.Add(product);
             _context.SaveChanges();
           
 

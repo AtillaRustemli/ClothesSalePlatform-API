@@ -18,5 +18,6 @@
         public Store Store { get; set; }
         public int SizeId { get; set; }
         public Size Size { get; set; }
+        public List<ProductImage> ProductImage { get; set; }
     }
 }

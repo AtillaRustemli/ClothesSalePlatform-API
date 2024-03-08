@@ -11,5 +11,6 @@
         public int SizeId { get; set; }
         public int GenderId { get; set; }
         public int StoreId { get; set; }
+        public IFormFile[] Photos { get; set; }
     }
 }

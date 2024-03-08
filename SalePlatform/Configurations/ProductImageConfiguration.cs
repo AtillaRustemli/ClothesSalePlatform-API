@@ -10,11 +10,13 @@ namespace ClothesSalePlatform.Configurations
         {
             builder.Property(pi => pi.ImgUrl).IsRequired(true);
             builder.Property(pi => pi.ProductId).IsRequired(true);
+            builder.Property(pi => pi.IsMain).IsRequired(true);
             builder.HasData(
                 new ProductImage
                 {
                     Id = 1,
                     ImgUrl = "yellow-catton-tshirt.png",
+                    IsMain = true,
                     ProductId = 1
                 }
                 );

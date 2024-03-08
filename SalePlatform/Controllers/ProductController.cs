@@ -43,7 +43,7 @@ namespace ClothesSalePlatform.Controllers
             return Ok(result);
         }
         [HttpPost("Create")]
-        public IActionResult Create(CreateProductDto createProductDto)
+        public IActionResult Create([FromForm]CreateProductDto createProductDto)
         {
             var result=_productService.Create(createProductDto,_mapper);
             return StatusCode(result) ;
@@ -56,7 +56,7 @@ namespace ClothesSalePlatform.Controllers
             return StatusCode(results);
         }
         [HttpPut("Update/{id?}")]
-        public IActionResult Update(UpdateProductDto updateProductDto,int?id)
+        public IActionResult Update([FromForm] UpdateProductDto updateProductDto,int?id)
         {
             var result= _productService.Update(updateProductDto,id,_mapper);
             return StatusCode(result);

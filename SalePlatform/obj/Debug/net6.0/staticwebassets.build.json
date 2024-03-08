@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aevz3UfHuVqwY7qUDLM0WaNeAhOuiArr876mDD/2MkA=",
+  "Hash": "uUmHy09DLOEBBjWF2Ysg8/fQW+pANf9dBH0ZRsnLHwE=",
   "Source": "ClothesSalePlatform",
   "BasePath": "_content/ClothesSalePlatform",
   "Mode": "Default",
@@ -16,6 +16,44 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\033050d0-55d9-47c0-b518-8062d0ab985fevent8.jpg",
+      "SourceId": "ClothesSalePlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\",
+      "BasePath": "_content/ClothesSalePlatform",
+      "RelativePath": "img/033050d0-55d9-47c0-b518-8062d0ab985fevent8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\033050d0-55d9-47c0-b518-8062d0ab985fevent8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\0ba14154-a420-4dfa-b49e-6aa63bda6c59event5.jpg",
+      "SourceId": "ClothesSalePlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\",
+      "BasePath": "_content/ClothesSalePlatform",
+      "RelativePath": "img/0ba14154-a420-4dfa-b49e-6aa63bda6c59event5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\0ba14154-a420-4dfa-b49e-6aa63bda6c59event5.jpg"
+    },
     {
       "Identity": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\yellow-catton-tshirt.png",
       "SourceId": "ClothesSalePlatform",

@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\033050d0-55d9-47c0-b518-8062d0ab985fevent8.jpg",
+      "PackagePath": "staticwebassets\\img\\033050d0-55d9-47c0-b518-8062d0ab985fevent8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\0ba14154-a420-4dfa-b49e-6aa63bda6c59event5.jpg",
+      "PackagePath": "staticwebassets\\img\\0ba14154-a420-4dfa-b49e-6aa63bda6c59event5.jpg"
+    },
+    {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\yellow-catton-tshirt.png",
       "PackagePath": "staticwebassets\\img\\yellow-catton-tshirt.png"
     },
