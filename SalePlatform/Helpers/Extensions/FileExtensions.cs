@@ -5,7 +5,7 @@
 
         public static bool CheckSize(this IFormFile file,int size)
         {
-            return size*1024>file.Length;
+            return file.Length/1024 >size;
         }
         public static bool CheckImage(this IFormFile file,string folder)
         {

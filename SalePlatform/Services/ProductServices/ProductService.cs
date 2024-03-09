@@ -56,17 +56,17 @@ namespace ClothesSalePlatform.Services.ProductServices
                 product.InStock= false;
             int count = 0;
             _context.Products.Add(product);
-            _context.SaveChanges();
+            //_context.SaveChanges();
             foreach (var photo in createProductDto.Photos)
             {
                 count++;
-                if (photo.CheckImage("image") && !photo.CheckSize(1000)) return 400;
+                if (!photo.CheckImage("image/") && photo.CheckSize(1000)) return 400;
               
 
                 var productImage = new ProductImage()
                 {
                     ImgUrl = photo.SaveImage("wwwroot/img"),
-                    ProductId = product.Id
+                    Product = product
                 };
                 if (count ==1)
                 {
@@ -132,6 +132,34 @@ namespace ClothesSalePlatform.Services.ProductServices
             if (product is null) return 404;
             if (udateProductDto.ProductCount == 0) udateProductDto.InStock = false;
             _mapper.Map(udateProductDto, product);
+            int count = 0;
+            foreach (var photo in udateProductDto.Photo)
+            {
+
+                if (!photo.CheckImage("image") && !photo.CheckSize(1000)) return 400;
+
+                var productImage = new ProductImage()
+                {
+                    ImgUrl = photo.SaveImage("wwwroot/img"),
+                    ProductId = product.Id
+                };
+                if (product.ProductImage == null)
+                {
+                    count++;
+                }
+                if(count==1)
+                {
+                    productImage.IsMain = true;
+                }
+                _context.ProductImages.Add(productImage);
+
+
+            }
+
+           
+
+
+
             _context.SaveChanges();
 
             return 202;

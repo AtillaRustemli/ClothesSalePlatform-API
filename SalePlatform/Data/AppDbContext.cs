@@ -18,6 +18,8 @@ namespace ClothesSalePlatform.Data
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Size> Size { get; set; }
         public DbSet<BrandStore> BrandStore { get; set; }
+        public DbSet<BrandCategory> BrandCategory { get; set; }
+        public DbSet<StoreCategory> StoreCategory { get; set; }
 
 
         public override int SaveChanges()

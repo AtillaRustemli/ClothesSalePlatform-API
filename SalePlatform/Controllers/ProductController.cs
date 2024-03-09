@@ -56,10 +56,11 @@ namespace ClothesSalePlatform.Controllers
             return StatusCode(results);
         }
         [HttpPut("Update/{id?}")]
-        public IActionResult Update([FromForm] UpdateProductDto updateProductDto,int?id)
+        public IActionResult Update(int?id,[FromForm] UpdateProductDto updateProductDto)
         {
             var result= _productService.Update(updateProductDto,id,_mapper);
             return StatusCode(result);
         }
+       
     }
 }

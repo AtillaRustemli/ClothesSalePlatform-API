@@ -1,4 +1,6 @@
-﻿namespace ClothesSalePlatform.Models
+﻿using ClothesSalePlatform.Models.ReletionTables;
+
+namespace ClothesSalePlatform.Models
 {
     public class Store:BaseEntity
     {
@@ -8,6 +10,8 @@
         public List<Product> Products { get; set; }
         public string OpeningHours { get; set; }
         public string ClosingHours { get; set; }
+        public List<BrandStore> BrandStore { get; set; }
+        public List<StoreCategory> StoreCategory { get; set; }
 
     }
 }
