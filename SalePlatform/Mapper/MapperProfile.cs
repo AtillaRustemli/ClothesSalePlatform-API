@@ -23,7 +23,9 @@ namespace ClothesSalePlatform.Mapper
         public MapperProfile()
         {
             CreateMap<AppUser, ReturnUserDto>();
-            
+
+            //------------------------------------------------------------------------------------------------------------------------
+            //-----------------------------------------------Product------------------------------------------------------------------
             CreateMap<Product, ReturnProductDto>()
                 .ForMember(d=>d.brandInProductDTO,map=>map.MapFrom(src=> new BrandInProductDTO
                 {
@@ -58,7 +60,8 @@ namespace ClothesSalePlatform.Mapper
             //CreateMap<Store, StoreInProductDTO>();
             CreateMap<CreateProductDto, Product>();
             CreateMap<UpdateProductDto, Product>();
-
+            //------------------------------------------------------------------------------------------------------------------------
+            //-------------------------------------------------Category---------------------------------------------------------------
             CreateMap<Category, ReturnCategoryDto>()
                 .ForMember(c => c.ProductCount, map => map.MapFrom(src => src.Products.Count))
                 .ForMember(d => d.BrandInCategoryDto, map => map.MapFrom(src => src.BrandCategory.Select(s => s.Brand)))
@@ -66,6 +69,9 @@ namespace ClothesSalePlatform.Mapper
                 ;
             CreateMap<Brand, BrandInCategoryDto>();
             CreateMap<Store, StoreInCategoryDto>();
+            CreateMap<CreateCategoryDto, Category>();
+
+
         }
     }
 }

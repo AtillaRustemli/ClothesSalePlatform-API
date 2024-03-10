@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ClothesSalePlatform.Data;
 using ClothesSalePlatform.DTOs.CategoryDTOs;
+using ClothesSalePlatform.Services.CategoryServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,35 +14,43 @@ namespace ClothesSalePlatform.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ICategoryService _categoryService;
 
-        public CategoryController(AppDbContext context, IMapper mapper)
+        public CategoryController(AppDbContext context, IMapper mapper, ICategoryService categoryService)
         {
             _context = context;
             _mapper = mapper;
+            _categoryService = categoryService;
         }
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = _categoryService.GetAll(_mapper);
+            if (result == null) return BadRequest();
+
+            return Ok(result);
+        }
+
 
         [HttpGet("{id?}")]
         public IActionResult Get(int?id)
         {
             if (id == null) return BadRequest();
-            var product=_context.Categories
-                .Where(c=>!c.IsDeleted)
-                .Include(c=>c.BrandCategory)
-                .ThenInclude(c=>c.Brand)
-                .Include(c=>c.StoreCategory)
-                .ThenInclude(c=>c.Store)
-                .FirstOrDefault(x => x.Id == id);
+            var category = _categoryService.GetOne(_mapper, id);
+            if(category== null) return NotFound();
+            return Ok(category);
+        }
 
-            var result = _mapper.Map<ReturnCategoryDto>(product);
-          for (var i = 0;i< result.BrandInCategoryDto.Length;i++)
-            {
-                result.BrandInCategoryDto[i].CategoryProductCount=_context.Products.Where(p=>p.CategoryId==id&&p.Brand.Name== result.BrandInCategoryDto[i].Name).Count();
-            }
-          for (var i = 0;i< result.StoreInCategoryDto.Length;i++)
-            {
-                result.StoreInCategoryDto[i].CategoryProductCount=_context.Products.Where(p=>p.CategoryId==id&&p.Store.Name== result.StoreInCategoryDto[i].Name).Count();
-            }
-            return Ok(result);
+        [HttpDelete]
+        public IActionResult Delete(int? id)
+        {
+            return StatusCode(_categoryService.Delete(id));
+        }
+
+        [HttpPost("Create")]
+        public IActionResult Create(CreateCategoryDto createCategoryDto)
+        {
+            return StatusCode(_categoryService.Create(createCategoryDto,_mapper));
         }
     }
 }
