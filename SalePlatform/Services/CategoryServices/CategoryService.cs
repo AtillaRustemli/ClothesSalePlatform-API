@@ -5,6 +5,7 @@ using ClothesSalePlatform.DTOs.ProductDTOs;
 using ClothesSalePlatform.Models;
 using ClothesSalePlatform.Models.ReletionTables;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Net.WebSockets;
 
 namespace ClothesSalePlatform.Services.CategoryServices
@@ -138,9 +139,54 @@ namespace ClothesSalePlatform.Services.CategoryServices
             return result;
         }
 
-        public int Update()
+        public int Update(int? id, UpdateCategoryDto updateCategoryDto, IMapper _mapper)
         {
-            throw new NotImplementedException();
+            if(id == null) return 400;
+            if(updateCategoryDto == null) return 400;
+            Store store;
+            //foreach (var item in updateCategoryDto.Store)
+            //{
+            //    store= _context.Store.FirstOrDefault(store=>store.Id == item);
+            //}
+            var category=_context.Categories
+                .Where(c=>!c.IsDeleted)
+                .FirstOrDefault(c => c.Id == id);
+            category.Name=updateCategoryDto.Name;
+            category.Products = null;
+            category.BrandCategory = null;
+            category.StoreCategory = null;
+             BrandCategory brandCategory;
+             StoreCategory storeCategory;
+            foreach (var item in updateCategoryDto.Products)
+            {
+                category.Products.Add(_context.Products.FirstOrDefault(c => c.Id == item));
+            }
+            foreach (var item in updateCategoryDto.Brand)
+            {
+                brandCategory = new()
+                {
+                    BrandId=item,
+                    CategoryId=category.Id,
+                };
+                
+                category.BrandCategory.Add(brandCategory);
+            }
+            foreach (var item in updateCategoryDto.Products)
+            {
+                storeCategory = new()
+                {
+                    StoreId = item,
+                    CategoryId = category.Id,
+                };  
+                category.StoreCategory.Add(storeCategory);
+            }
+            _context.SaveChanges();
+
+            if (category == null) return 404;
+
+
+            return 202;
+
         }
     }
 }

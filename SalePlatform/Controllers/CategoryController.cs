@@ -52,5 +52,11 @@ namespace ClothesSalePlatform.Controllers
         {
             return StatusCode(_categoryService.Create(createCategoryDto,_mapper));
         }
+        [HttpPut("Update/{id?}")]
+        public IActionResult Update(int?id,UpdateCategoryDto updateCategoryDto)
+        {
+
+            return StatusCode(_categoryService.Update(id,updateCategoryDto,_mapper));
+        }
     }
 }

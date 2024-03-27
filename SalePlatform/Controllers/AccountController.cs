@@ -101,6 +101,22 @@ namespace ClothesSalePlatform.Controllers
             return Ok(new {Message="Signed in Succesifuly",token= stringToken });
         }
 
+        [HttpPost("RoleChange")]
+        public async Task<IActionResult> RoleChange(RoleChangeDto roleChange)
+        {
+            if (roleChange == null) return BadRequest();
+            var user =await _userManager.FindByNameAsync(roleChange.UserName);
+            if(user == null) return NotFound();
+            var userRoles =await _userManager.GetRolesAsync(user);
+            await _userManager.RemoveFromRolesAsync(user,userRoles);
+            await _userManager.AddToRolesAsync(user, roleChange.Roles);
+            await _userManager.UpdateAsync(user);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+
 
 
     }

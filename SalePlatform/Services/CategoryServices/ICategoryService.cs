@@ -8,7 +8,7 @@ namespace ClothesSalePlatform.Services.CategoryServices
         ReturnCategoryListDto GetAll(IMapper mapper);
         ReturnCategoryDto GetOne(IMapper mapper,int?id);
         int Create(CreateCategoryDto createCategoryDto,IMapper mapper);
-        int Update();
+        int Update(int? id, UpdateCategoryDto updateCategoryDto,IMapper mapper);
         int Delete(int?id);
 
     }
