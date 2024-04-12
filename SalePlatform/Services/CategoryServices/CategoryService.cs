@@ -90,7 +90,7 @@ namespace ClothesSalePlatform.Services.CategoryServices
             if (categories == null) return null;
             var result=new ReturnCategoryListDto();
             result.Values = _mapper.Map<List<ReturnCategoryDto>>(categories);
-            int id;
+            
 
             for (int i = 0; i < categories.Count; i++)
             {
@@ -143,7 +143,7 @@ namespace ClothesSalePlatform.Services.CategoryServices
         {
             if(id == null) return 400;
             if(updateCategoryDto == null) return 400;
-            Store store;
+            //Store store;
             //foreach (var item in updateCategoryDto.Store)
             //{
             //    store= _context.Store.FirstOrDefault(store=>store.Id == item);
@@ -151,34 +151,61 @@ namespace ClothesSalePlatform.Services.CategoryServices
             var category=_context.Categories
                 .Where(c=>!c.IsDeleted)
                 .FirstOrDefault(c => c.Id == id);
+            if (category == null) return 404;
             category.Name=updateCategoryDto.Name;
             category.Products = null;
-            category.BrandCategory = null;
-            category.StoreCategory = null;
+
+
+
+
              BrandCategory brandCategory;
+             var brandCat= _context.BrandCategory.Where(bc => !bc.IsDeleted && bc.CategoryId == category.Id).ToList(); 
+            foreach (var brand in brandCat) {
+
+                brand.IsDeleted = true;
+            
+            }
              StoreCategory storeCategory;
-            foreach (var item in updateCategoryDto.Products)
+             var storeCat = _context.StoreCategory.Where(bc => !bc.IsDeleted && bc.CategoryId == category.Id).ToList();
+
+            foreach (var store in storeCat)
             {
-                category.Products.Add(_context.Products.FirstOrDefault(c => c.Id == item));
+
+                store.IsDeleted = true;
+
             }
             foreach (var item in updateCategoryDto.Brand)
             {
+                
                 brandCategory = new()
                 {
                     BrandId=item,
                     CategoryId=category.Id,
                 };
-                
-                category.BrandCategory.Add(brandCategory);
+                if (_context.BrandCategory.Contains(brandCategory))
+                {
+                    continue;
+                }
+
+                    _context.BrandCategory.Add(brandCategory);
             }
-            foreach (var item in updateCategoryDto.Products)
+            foreach (var item in updateCategoryDto.Store)
             {
                 storeCategory = new()
                 {
                     StoreId = item,
                     CategoryId = category.Id,
-                };  
-                category.StoreCategory.Add(storeCategory);
+                };
+                _context.StoreCategory.Add(storeCategory);
+            }
+            foreach (var item in updateCategoryDto.Products)
+            {
+                var cat = _context.Products.FirstOrDefault(c => c.Id == item);
+               
+                category.Products = new()
+                {
+                    cat
+                };
             }
             _context.SaveChanges();
 

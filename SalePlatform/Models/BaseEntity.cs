@@ -1,4 +1,6 @@
-﻿namespace ClothesSalePlatform.Models
+﻿
+
+namespace ClothesSalePlatform.Models
 {
     public class BaseEntity
     {

@@ -25,19 +25,32 @@ namespace ClothesSalePlatform.Validators.CategoryDtoValidatiors
 
                 foreach (var item in c.Store)
                 {
-                    if (_context.Store.FirstOrDefault(c => c.Id == item) == null) custom.AddFailure("Store", "Bele magaza yoxdur");
+                    if (_context.Store.FirstOrDefault(c => c.Id == item) == null || _context.Brand.FirstOrDefault(c => c.Id == item).IsDeleted) custom.AddFailure("Store", "Bele magaza yoxdur");
 
                 }
-                foreach (var item in c.Brand)
-                {
-                    if (_context.Brand.FirstOrDefault(c => c.Id == item) == null) custom.AddFailure("Brand", "Bele brend yoxdur");
 
-                }
+            });
+            RuleFor(c => c).Custom((c, custom) =>
+            {
+                Product product;
                 foreach (var item in c.Products)
                 {
-                    if (_context.Products.FirstOrDefault(c => c.Id == item) == null) custom.AddFailure("Products", "Bele mehsul yoxdur");
+                    product = _context.Products.FirstOrDefault(c => c.Id == item);
+                    if (product == null || (product!=null && product.IsDeleted)) custom.AddFailure("Product", "Bele mehsul yoxdur");
 
                 }
+
+            });
+            RuleFor(c => c).Custom((c, custom) =>
+            {
+
+             
+                foreach (var item in c.Brand)
+                {
+                    if (_context.Brand.FirstOrDefault(c => c.Id == item) == null|| _context.Brand.FirstOrDefault(c => c.Id == item).IsDeleted) custom.AddFailure("Brand", "Bele brend yoxdur");
+
+                }
+             
 
             });
         }
