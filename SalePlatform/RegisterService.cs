@@ -1,9 +1,11 @@
 ﻿using ClothesSalePlatform.Data;
 using ClothesSalePlatform.Mapper;
 using ClothesSalePlatform.Models;
+using ClothesSalePlatform.Services.BrandServices;
 using ClothesSalePlatform.Services.CategoryServices;
 using ClothesSalePlatform.Services.JWTServices;
 using ClothesSalePlatform.Services.ProductServices;
+using ClothesSalePlatform.Services.StoreServices;
 using ClothesSalePlatform.Validators.ProductValidators;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -102,6 +104,8 @@ namespace ClothesSalePlatform
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IJWTService, JWTService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IBrandService, BrandService>();
+            services.AddScoped<IStoreService, StoreService>();
 
 
         }

@@ -12,6 +12,7 @@ namespace ClothesSalePlatform.DTOs.BrandDTOs
         public int FoundedYear { get; set; }
         public string Description { get; set; }
         public string FoundedCountry { get; set; }
+        public int ProductCount { get; set; }
         public StoreInBrandDto[] StoresInBrandDto { get; set; }
         public List<CategoryInBrandDto> CategoriesInBrandDto { get; set; }
 

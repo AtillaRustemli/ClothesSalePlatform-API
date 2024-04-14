@@ -25,7 +25,7 @@ namespace ClothesSalePlatform.Validators.CategoryDtoValidatiors
 
                 foreach (var item in c.Store)
                 {
-                    if (_context.Store.FirstOrDefault(c => c.Id == item) == null || _context.Brand.FirstOrDefault(c => c.Id == item).IsDeleted) custom.AddFailure("Store", "Bele magaza yoxdur");
+                    if (_context.Store.Where(c=>!c.IsDeleted).FirstOrDefault(c => c.Id == item) == null) custom.AddFailure("Store", "Bele magaza yoxdur");
 
                 }
 
@@ -47,7 +47,7 @@ namespace ClothesSalePlatform.Validators.CategoryDtoValidatiors
              
                 foreach (var item in c.Brand)
                 {
-                    if (_context.Brand.FirstOrDefault(c => c.Id == item) == null|| _context.Brand.FirstOrDefault(c => c.Id == item).IsDeleted) custom.AddFailure("Brand", "Bele brend yoxdur");
+                    if (_context.Brand.Where(c=>!c.IsDeleted).FirstOrDefault(c => c.Id == item) == null) custom.AddFailure("Brand", "Bele brend yoxdur");
 
                 }
              

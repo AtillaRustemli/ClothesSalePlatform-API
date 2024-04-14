@@ -81,6 +81,7 @@ namespace ClothesSalePlatform.Services.CategoryServices
         {
             var categories=_context.Categories
                 .Where(p=>!p.IsDeleted)
+                .Include(c=>c.Products)
                 .Include(p=>p.BrandCategory)
                 .ThenInclude(p=>p.Brand)
                 .Include(p=>p.StoreCategory)
@@ -90,18 +91,18 @@ namespace ClothesSalePlatform.Services.CategoryServices
             if (categories == null) return null;
             var result=new ReturnCategoryListDto();
             result.Values = _mapper.Map<List<ReturnCategoryDto>>(categories);
-            
+
 
             for (int i = 0; i < categories.Count; i++)
             {
-            for (var j = 0; j < result.Values[i].BrandInCategoryDto.Length; j++)
-            {
+                for (var j = 0; j < result.Values[i].BrandInCategoryDto.Length; j++)
+                {
                     result.Values[i].BrandInCategoryDto[j].CategoryProductCount = _context.Products.Where(p => p.CategoryId == categories[i].Id && p.Brand.Name == result.Values[i].BrandInCategoryDto[j].Name).Count();
-            }
-            for (var j = 0; j < result.Values[i].StoreInCategoryDto.Length; j++)
-            {
-                result.Values[i].StoreInCategoryDto[j].CategoryProductCount = _context.Products.Where(p => p.CategoryId == categories[i].Id && p.Store.Name == result.Values[i].StoreInCategoryDto[j].Name).Count();
-            }
+                }
+                for (var j = 0; j < result.Values[i].StoreInCategoryDto.Length; j++)
+                {
+                    result.Values[i].StoreInCategoryDto[j].CategoryProductCount = _context.Products.Where(p => p.CategoryId == categories[i].Id && p.Store.Name == result.Values[i].StoreInCategoryDto[j].Name).Count();
+                }
 
             }
 
