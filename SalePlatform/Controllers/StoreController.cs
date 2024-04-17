@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ClothesSalePlatform.Data;
+using ClothesSalePlatform.DTOs.StoreDTOs;
 using ClothesSalePlatform.Services.BrandServices;
 using ClothesSalePlatform.Services.StoreServices;
 using Microsoft.AspNetCore.Http;
@@ -38,6 +39,22 @@ namespace ClothesSalePlatform.Controllers
             var result = _storeService.GetOne(id, _mapper);
             if(result == null) return NotFound();
             return Ok(result);
+        }
+        [HttpDelete("{id?}")]
+        public IActionResult Delete(int? id)
+        {
+            return StatusCode(_storeService.Delete(id));
+        }
+        [HttpPost("Create")]
+        public IActionResult Create(CreateStoreDto createStoreDto)
+        {
+            var newStore=_storeService.Create(createStoreDto,_mapper);
+            return StatusCode(newStore);
+        }
+        [HttpPut("Update/{id?}")]
+        public IActionResult Update(int?id,UpdateStoreDto updateStoreDto)
+        {
+            return StatusCode(_storeService.Update(id, updateStoreDto, _mapper));
         }
 
 

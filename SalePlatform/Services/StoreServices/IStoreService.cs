@@ -7,8 +7,8 @@ namespace ClothesSalePlatform.Services.StoreServices
     {
         ReturnStoreDto GetOne(int? id, IMapper mapper);
         ReturnStoreListDto GetAll(IMapper mapper);
-        //int Create(int? id, IMapper mapper);
-        //int Update(int? id, IMapper mapper);
-        //int Delete(int? id, IMapper mapper);
+        int Create(CreateStoreDto createStoreDto, IMapper mapper);
+        int Update(int?id,UpdateStoreDto updateStoreDto, IMapper mapper);
+        int Delete(int? id);
     }
 }

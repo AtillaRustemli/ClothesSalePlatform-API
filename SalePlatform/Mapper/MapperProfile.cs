@@ -90,6 +90,9 @@ namespace ClothesSalePlatform.Mapper
             CreateMap<Category, CategoryInStoreDto>();
             CreateMap<Brand, BrandInStoreDto>();
 
+            CreateMap<CreateStoreDto,Store >();
+            CreateMap<UpdateStoreDto,Store >();
+
 
         }
     }
