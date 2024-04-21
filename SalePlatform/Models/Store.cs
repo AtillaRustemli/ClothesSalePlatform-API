@@ -12,6 +12,8 @@ namespace ClothesSalePlatform.Models
         public string ClosingHours { get; set; }
         public List<BrandStore> BrandStore { get; set; }
         public List<StoreCategory> StoreCategory { get; set; }
+        public List<StoreSubscriber> StoreSubscriber { get; set; }
+
 
     }
 }

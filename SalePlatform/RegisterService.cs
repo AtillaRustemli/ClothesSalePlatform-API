@@ -1,16 +1,20 @@
 ﻿using ClothesSalePlatform.Data;
+using ClothesSalePlatform.Email;
 using ClothesSalePlatform.Mapper;
 using ClothesSalePlatform.Models;
 using ClothesSalePlatform.Services.BrandServices;
 using ClothesSalePlatform.Services.CategoryServices;
+using ClothesSalePlatform.Services.EmailServices;
 using ClothesSalePlatform.Services.JWTServices;
 using ClothesSalePlatform.Services.ProductServices;
 using ClothesSalePlatform.Services.StoreServices;
+using ClothesSalePlatform.Services.SubscribeServices;
 using ClothesSalePlatform.Validators.ProductValidators;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -49,6 +53,8 @@ namespace ClothesSalePlatform
             }).AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
+            services.Configure<EmailConfig>(config.GetSection("EmailSetting"));
+            services.AddSingleton<EmailConfig>(config.GetSection("EmailSetting").Get<EmailConfig>());
 
             services.AddAuthentication(options =>
             {
@@ -106,6 +112,8 @@ namespace ClothesSalePlatform
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<IStoreService, StoreService>();
+            services.AddScoped<ISubscribeService, SubscribeService>();
+            services.AddScoped<IEmailService, EmailService>();
 
 
         }

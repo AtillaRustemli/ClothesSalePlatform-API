@@ -137,3 +137,9 @@ C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatfo
 C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\MimeKit.dll
+C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\System.Formats.Asn1.dll
+C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\MSI\OneDrive\Desktop\Programming\.net Core\API\SaleStore-Api\SalePlatform\SalePlatform\bin\Debug\net6.0\MailKit.dll

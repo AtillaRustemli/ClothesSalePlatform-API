@@ -5,6 +5,7 @@ namespace ClothesSalePlatform.DTOs.StoreDTOs
 {
     public class ReturnStoreDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
         public string Description { get; set; }

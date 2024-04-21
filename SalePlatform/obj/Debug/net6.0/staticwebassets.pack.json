@@ -1,24 +1,136 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\Templates\\VerifyEmail.html",
+      "PackagePath": "staticwebassets\\Templates\\VerifyEmail.html"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\00adb0f9-01a6-4367-81b6-075c872e58e3yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\00adb0f9-01a6-4367-81b6-075c872e58e3yellow-catton-tshirt.png"
+    },
+    {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\033050d0-55d9-47c0-b518-8062d0ab985fevent8.jpg",
       "PackagePath": "staticwebassets\\img\\033050d0-55d9-47c0-b518-8062d0ab985fevent8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\05740818-f259-4ee6-86fc-b64c8352a740yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\05740818-f259-4ee6-86fc-b64c8352a740yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\0711fed6-52e5-4e64-87a7-03b269ead983yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\0711fed6-52e5-4e64-87a7-03b269ead983yellow-catton-tshirt.png"
     },
     {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\0ba14154-a420-4dfa-b49e-6aa63bda6c59event5.jpg",
       "PackagePath": "staticwebassets\\img\\0ba14154-a420-4dfa-b49e-6aa63bda6c59event5.jpg"
     },
     {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\0bfd0b3a-e0e7-4edd-a12a-28dd277f1f65yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\0bfd0b3a-e0e7-4edd-a12a-28dd277f1f65yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\1ad531d3-71b9-49a1-8840-01c1711ded96yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\1ad531d3-71b9-49a1-8840-01c1711ded96yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\1df1a32a-69d8-423b-b1ca-501d893e7dc0yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\1df1a32a-69d8-423b-b1ca-501d893e7dc0yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\1e371356-8b51-40e7-a57f-0fbc582bc67dyellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\1e371356-8b51-40e7-a57f-0fbc582bc67dyellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\35f0b8c6-f7e3-49c5-881c-660172ab58d9yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\35f0b8c6-f7e3-49c5-881c-660172ab58d9yellow-catton-tshirt.png"
+    },
+    {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\39372def-cf1a-4f5a-ac4b-a83e7594a79fevent13.jpg",
       "PackagePath": "staticwebassets\\img\\39372def-cf1a-4f5a-ac4b-a83e7594a79fevent13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\3fe445aa-dc9a-4c61-9103-88774a321161yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\3fe445aa-dc9a-4c61-9103-88774a321161yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\45b6fa48-0e13-42bc-8c0c-18571756da27yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\45b6fa48-0e13-42bc-8c0c-18571756da27yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\495862c9-cf5c-4403-b1fe-c7fe1caa2559yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\495862c9-cf5c-4403-b1fe-c7fe1caa2559yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\55469f50-743e-4c92-922d-989732beb3e1yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\55469f50-743e-4c92-922d-989732beb3e1yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\5d25a0b6-9974-47b0-8a8e-946164da6dfcyellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\5d25a0b6-9974-47b0-8a8e-946164da6dfcyellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\5eb438d0-81b9-4b2a-932b-94a2e51b988byellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\5eb438d0-81b9-4b2a-932b-94a2e51b988byellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\63eccaf0-beb0-4602-830c-3614e65d38acyellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\63eccaf0-beb0-4602-830c-3614e65d38acyellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\65b73af4-b5a4-45aa-8bc1-3b1f4c87a4abyellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\65b73af4-b5a4-45aa-8bc1-3b1f4c87a4abyellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\65c16d4c-353f-42d1-974f-8b2346af40fdyellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\65c16d4c-353f-42d1-974f-8b2346af40fdyellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\6f491345-4a04-45f1-8d9c-dcd44a125ba9yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\6f491345-4a04-45f1-8d9c-dcd44a125ba9yellow-catton-tshirt.png"
     },
     {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\794ae426-c994-476c-9e77-0e02bb52cfb7yellow-catton-tshirt.png",
       "PackagePath": "staticwebassets\\img\\794ae426-c994-476c-9e77-0e02bb52cfb7yellow-catton-tshirt.png"
     },
     {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\7b486b5c-4c0b-459e-bed5-5b2ea0f8f414yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\7b486b5c-4c0b-459e-bed5-5b2ea0f8f414yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\7d61143f-9b7a-4595-9f22-dd302b25b9e4yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\7d61143f-9b7a-4595-9f22-dd302b25b9e4yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\7e224049-0c75-4ca7-af53-14bac17dd044yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\7e224049-0c75-4ca7-af53-14bac17dd044yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\8514fd94-a59b-4dbf-b6e6-3bca9d2c442fyellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\8514fd94-a59b-4dbf-b6e6-3bca9d2c442fyellow-catton-tshirt.png"
+    },
+    {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\8c225e43-b358-4aab-9537-b3ed4e9c03c8yellow-catton-tshirt.png",
       "PackagePath": "staticwebassets\\img\\8c225e43-b358-4aab-9537-b3ed4e9c03c8yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\95c7585c-4419-49e9-be06-64cccb3f97a6yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\95c7585c-4419-49e9-be06-64cccb3f97a6yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\9af4e270-8d78-43d2-bc20-93da44aa0310yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\9af4e270-8d78-43d2-bc20-93da44aa0310yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\9c7d4f49-c8e5-4b02-8f05-e14ea8e8a3e6yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\9c7d4f49-c8e5-4b02-8f05-e14ea8e8a3e6yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\9e3ef7af-a4a6-4b9e-8c4d-e1f0c46edb63yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\9e3ef7af-a4a6-4b9e-8c4d-e1f0c46edb63yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\a444d405-0899-4299-a4dd-11d6ee1f5286yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\a444d405-0899-4299-a4dd-11d6ee1f5286yellow-catton-tshirt.png"
     },
     {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\afc58fbd-c65e-42b1-99c9-9969b24948b9yellow-catton-tshirt.png",
@@ -29,8 +141,24 @@
       "PackagePath": "staticwebassets\\img\\b5f59432-d002-44db-8479-4c3e6a5e3777yellow-catton-tshirt.png"
     },
     {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\b88b7210-6900-4279-a3b1-05def2036ad5yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\b88b7210-6900-4279-a3b1-05def2036ad5yellow-catton-tshirt.png"
+    },
+    {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\ba050fb3-9960-499b-9114-9dff3d80ec31yellow-catton-tshirt.png",
       "PackagePath": "staticwebassets\\img\\ba050fb3-9960-499b-9114-9dff3d80ec31yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\d3487f7f-0276-4140-bc9d-ecaf6df54ea0yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\d3487f7f-0276-4140-bc9d-ecaf6df54ea0yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\eece550e-e291-4abe-9d80-d4b54f6a5918yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\eece550e-e291-4abe-9d80-d4b54f6a5918yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\f5048a62-cba7-4b1e-acc1-7702ffbfd18byellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\f5048a62-cba7-4b1e-acc1-7702ffbfd18byellow-catton-tshirt.png"
     },
     {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\f5f7511e-c2f6-4b75-8747-ffec79334796yellow-catton-tshirt.png",
@@ -39,6 +167,14 @@
     {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\f8eb108e-f11c-440c-8542-402b2628c1b6yellow-catton-tshirt.png",
       "PackagePath": "staticwebassets\\img\\f8eb108e-f11c-440c-8542-402b2628c1b6yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\fc4a06ba-1397-4505-8475-1c6685095ad9yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\fc4a06ba-1397-4505-8475-1c6685095ad9yellow-catton-tshirt.png"
+    },
+    {
+      "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\fd2aa813-212f-4bce-a5c4-f4446fac5832yellow-catton-tshirt.png",
+      "PackagePath": "staticwebassets\\img\\fd2aa813-212f-4bce-a5c4-f4446fac5832yellow-catton-tshirt.png"
     },
     {
       "Id": "C:\\Users\\MSI\\OneDrive\\Desktop\\Programming\\.net Core\\API\\SaleStore-Api\\SalePlatform\\SalePlatform\\wwwroot\\img\\yellow-catton-tshirt.png",

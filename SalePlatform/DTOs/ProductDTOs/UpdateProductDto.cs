@@ -9,7 +9,7 @@
         public double Price { get; set; }
         public int CategoryId { get; set; }
         public int BrandId { get; set; }
-        public int SizeId { get; set; }
+        public List<int> SizeId { get; set; }
         public int GenderId { get; set; }
         public int StoreId { get; set; }
         public IFormFile[] Photo { get; set; }

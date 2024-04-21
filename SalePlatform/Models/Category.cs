@@ -8,6 +8,8 @@ namespace ClothesSalePlatform.Models
         public List<Product> Products { get; set; }
         public List<BrandCategory> BrandCategory { get; set; }
         public List<StoreCategory> StoreCategory { get; set; }
+        public List<CategorySubscriber> CategorySubscriber { get; set; }
+
 
     }
 }

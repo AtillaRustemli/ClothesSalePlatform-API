@@ -331,9 +331,6 @@ namespace ClothesSalePlatform.Data.Migrations
                     b.Property<int>("ProductCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("SizeId")
-                        .HasColumnType("int");
-
                     b.Property<int>("StoreId")
                         .HasColumnType("int");
 
@@ -347,8 +344,6 @@ namespace ClothesSalePlatform.Data.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("GenderId");
-
-                    b.HasIndex("SizeId");
 
                     b.HasIndex("StoreId");
 
@@ -369,7 +364,6 @@ namespace ClothesSalePlatform.Data.Migrations
                             Name = "T-Shirt Catton",
                             Price = 19.989999999999998,
                             ProductCount = 1,
-                            SizeId = 1,
                             StoreId = 1,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -519,6 +513,123 @@ namespace ClothesSalePlatform.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.BrandSubscriber", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("BrandId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SubscriberId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("SubscriberId");
+
+                    b.ToTable("BrandSubscriber");
+                });
+
+            modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.CategorySubscriber", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SubscriberId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("SubscriberId");
+
+                    b.ToTable("CategorySubscriber");
+                });
+
+            modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.ProductSize", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SizeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("SizeId");
+
+                    b.ToTable("ProductSize");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsDeleted = false,
+                            ProductId = 1,
+                            SizeId = 1,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
             modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.StoreCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -564,6 +675,41 @@ namespace ClothesSalePlatform.Data.Migrations
                             StoreId = 1,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
+                });
+
+            modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.StoreSubscriber", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("StoreId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubscriberId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StoreId");
+
+                    b.HasIndex("SubscriberId");
+
+                    b.ToTable("StoreSubscriber");
                 });
 
             modelBuilder.Entity("ClothesSalePlatform.Models.Size", b =>
@@ -720,6 +866,35 @@ namespace ClothesSalePlatform.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ClothesSalePlatform.Models.Subscriber", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Subscribers");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -749,22 +924,22 @@ namespace ClothesSalePlatform.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e9d7751d-56c4-492e-8523-25373379a288",
-                            ConcurrencyStamp = "9ae68e2f-2b1d-4670-97de-ba20fcea1f38",
+                            Id = "c5c302d6-6b9c-4c14-9e1c-190b3c0b7163",
+                            ConcurrencyStamp = "8098937b-6c27-456a-979b-e9adcf4014d7",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "53b05ce2-280b-478a-bfab-d42f0a4b0034",
-                            ConcurrencyStamp = "e804f67b-1b5d-4e7d-b862-00c408e9837d",
+                            Id = "68e2c2c5-3473-4a4f-b282-6991adddbdfa",
+                            ConcurrencyStamp = "bfe10442-365e-44e2-98ce-f241f1e07924",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
-                            Id = "d97e55c2-5698-411f-9c5d-639f3582ab07",
-                            ConcurrencyStamp = "8f22f3d8-317d-45d9-bc67-30d0312f8fb9",
+                            Id = "20f229dc-f418-4361-a6cc-e7036c3e1092",
+                            ConcurrencyStamp = "3510f4e1-394d-4103-bb6d-078d29383df7",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         });
@@ -896,12 +1071,6 @@ namespace ClothesSalePlatform.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ClothesSalePlatform.Models.Size", "Size")
-                        .WithMany("Product")
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ClothesSalePlatform.Models.Store", "Store")
                         .WithMany("Products")
                         .HasForeignKey("StoreId")
@@ -913,8 +1082,6 @@ namespace ClothesSalePlatform.Data.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Gender");
-
-                    b.Navigation("Size");
 
                     b.Navigation("Store");
                 });
@@ -968,6 +1135,63 @@ namespace ClothesSalePlatform.Data.Migrations
                     b.Navigation("Store");
                 });
 
+            modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.BrandSubscriber", b =>
+                {
+                    b.HasOne("ClothesSalePlatform.Models.Brand", "Brand")
+                        .WithMany("BrandSubscriber")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClothesSalePlatform.Models.Subscriber", "Subscriber")
+                        .WithMany("BrandSubscriber")
+                        .HasForeignKey("SubscriberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Brand");
+
+                    b.Navigation("Subscriber");
+                });
+
+            modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.CategorySubscriber", b =>
+                {
+                    b.HasOne("ClothesSalePlatform.Models.Category", "Category")
+                        .WithMany("CategorySubscriber")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClothesSalePlatform.Models.Subscriber", "Subscriber")
+                        .WithMany("CategorySubscriber")
+                        .HasForeignKey("SubscriberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Subscriber");
+                });
+
+            modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.ProductSize", b =>
+                {
+                    b.HasOne("ClothesSalePlatform.Models.Product", "Product")
+                        .WithMany("ProductSize")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClothesSalePlatform.Models.Size", "Size")
+                        .WithMany("ProductSize")
+                        .HasForeignKey("SizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Size");
+                });
+
             modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.StoreCategory", b =>
                 {
                     b.HasOne("ClothesSalePlatform.Models.Category", "Category")
@@ -985,6 +1209,25 @@ namespace ClothesSalePlatform.Data.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Store");
+                });
+
+            modelBuilder.Entity("ClothesSalePlatform.Models.ReletionTables.StoreSubscriber", b =>
+                {
+                    b.HasOne("ClothesSalePlatform.Models.Store", "Store")
+                        .WithMany("StoreSubscriber")
+                        .HasForeignKey("StoreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClothesSalePlatform.Models.Subscriber", "Subscriber")
+                        .WithMany("StoreSubscriber")
+                        .HasForeignKey("SubscriberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Store");
+
+                    b.Navigation("Subscriber");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1044,12 +1287,16 @@ namespace ClothesSalePlatform.Data.Migrations
 
                     b.Navigation("BrandStore");
 
+                    b.Navigation("BrandSubscriber");
+
                     b.Navigation("Products");
                 });
 
             modelBuilder.Entity("ClothesSalePlatform.Models.Category", b =>
                 {
                     b.Navigation("BrandCategory");
+
+                    b.Navigation("CategorySubscriber");
 
                     b.Navigation("Products");
 
@@ -1064,11 +1311,13 @@ namespace ClothesSalePlatform.Data.Migrations
             modelBuilder.Entity("ClothesSalePlatform.Models.Product", b =>
                 {
                     b.Navigation("ProductImage");
+
+                    b.Navigation("ProductSize");
                 });
 
             modelBuilder.Entity("ClothesSalePlatform.Models.Size", b =>
                 {
-                    b.Navigation("Product");
+                    b.Navigation("ProductSize");
                 });
 
             modelBuilder.Entity("ClothesSalePlatform.Models.Store", b =>
@@ -1078,6 +1327,17 @@ namespace ClothesSalePlatform.Data.Migrations
                     b.Navigation("Products");
 
                     b.Navigation("StoreCategory");
+
+                    b.Navigation("StoreSubscriber");
+                });
+
+            modelBuilder.Entity("ClothesSalePlatform.Models.Subscriber", b =>
+                {
+                    b.Navigation("BrandSubscriber");
+
+                    b.Navigation("CategorySubscriber");
+
+                    b.Navigation("StoreSubscriber");
                 });
 #pragma warning restore 612, 618
         }

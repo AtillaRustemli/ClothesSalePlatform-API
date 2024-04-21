@@ -5,6 +5,7 @@ using ClothesSalePlatform.DTOs.BrandDTOs;
 using ClothesSalePlatform.DTOs.CategoryDTOs;
 using ClothesSalePlatform.DTOs.ProductDTOs;
 using ClothesSalePlatform.DTOs.StoreDTOs;
+using ClothesSalePlatform.DTOs.SubscriberDTOs;
 using ClothesSalePlatform.Models;
 using ClothesSalePlatform.Models.ReletionTables;
 using static ClothesSalePlatform.DTOs.ProductDTOs.ReturnProductDto;
@@ -35,7 +36,7 @@ namespace ClothesSalePlatform.Mapper
                         Name=src.Brand.Name,
                         ProductCount=src.Brand.Products.Count,
                 }))
-                .ForMember(d=>d.sizeInProductDTO,map=>map.MapFrom(src=>src.Size))
+                .ForMember(d=>d.sizeInProductDTO,map=>map.MapFrom(src=>src.ProductSize.Select(s=>s.Size)))
                 .ForMember(d => d.categoryInProductDTO, map => map.MapFrom(src => new CategoryInProductDTO
                 {
                     Name = src.Category.Name,
@@ -92,6 +93,17 @@ namespace ClothesSalePlatform.Mapper
 
             CreateMap<CreateStoreDto,Store >();
             CreateMap<UpdateStoreDto,Store >();
+            //------------------------------------------------------------------------------------------------------------------------
+            //-------------------------------------------------Subscriber-------------------------------------------------------------
+            CreateMap<Subscriber,ReturnSubscriberDto>()
+                .ForMember(d=>d.BrandInSubscriberDto,map=>map.MapFrom(src=>src.BrandSubscriber.Select(s=>s.Brand)))
+                .ForMember(d=>d.CategoryInSubscriberDto,map=>map.MapFrom(src=>src.CategorySubscriber.Select(s=>s.Category)))
+                .ForMember(d=>d.StoreInSubscriberDto,map=>map.MapFrom(src=>src.StoreSubscriber.Select(s=>s.Store)))
+                ;
+
+            CreateMap<Brand,BrandInSubscriberDto>();
+            CreateMap<Category,CategoryInSubscriberDto>();
+            CreateMap<Store,StoreInSubscriberDto>();
 
 
         }

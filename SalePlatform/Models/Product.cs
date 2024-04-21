@@ -1,4 +1,6 @@
-﻿namespace ClothesSalePlatform.Models
+﻿using ClothesSalePlatform.Models.ReletionTables;
+
+namespace ClothesSalePlatform.Models
 {
     public class Product:BaseEntity
     {
@@ -16,8 +18,7 @@
         public Brand Brand { get; set; }
         public int StoreId { get; set; }
         public Store Store { get; set; }
-        public int SizeId { get; set; }
-        public Size Size { get; set; }
+        public List<ProductSize> ProductSize { get; set; }
         public List<ProductImage> ProductImage { get; set; }
     }
 }

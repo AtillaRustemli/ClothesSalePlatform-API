@@ -20,6 +20,11 @@ namespace ClothesSalePlatform.Data
         public DbSet<BrandStore> BrandStore { get; set; }
         public DbSet<BrandCategory> BrandCategory { get; set; }
         public DbSet<StoreCategory> StoreCategory { get; set; }
+        public DbSet<Subscriber> Subscribers { get; set; }
+        public DbSet<BrandSubscriber> BrandSubscriber { get; set; }
+        public DbSet<CategorySubscriber> CategorySubscriber { get; set; }
+        public DbSet<StoreSubscriber> StoreSubscriber { get; set; }
+        public DbSet<ProductSize> ProductSize { get; set; }
 
 
         public override int SaveChanges()

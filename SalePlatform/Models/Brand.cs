@@ -11,5 +11,7 @@ namespace ClothesSalePlatform.Models
         public List<Product> Products { get; set; }
         public List<BrandCategory> BrandCategory { get; set; }
         public List<BrandStore> BrandStore { get; set; }
+        public List<BrandSubscriber> BrandSubscriber { get; set; }
+
     }
 }

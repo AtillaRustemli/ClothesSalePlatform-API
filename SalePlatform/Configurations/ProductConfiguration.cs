@@ -10,8 +10,6 @@ namespace ClothesSalePlatform.Configurations
         {
             builder.Property(p=>p.Name)
                 .IsRequired(true);
-            builder.Property(p=>p.SizeId)
-                .IsRequired(true);
             builder.Property(p=>p.Color)
                 .IsRequired(true);
             builder.Property(p=>p.ProductCount)
@@ -33,7 +31,6 @@ namespace ClothesSalePlatform.Configurations
                 {
                     Id=1,
                     Name="T-Shirt Catton",
-                    SizeId=1,
                     Color="Black",
                     ProductCount=1,
                     Price=19.99,

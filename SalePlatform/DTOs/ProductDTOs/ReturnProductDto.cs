@@ -2,13 +2,14 @@
 {
     public class ReturnProductDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }
         public int ProductCount { get; set; }
         public bool InStock { get; set; }
         public double Price { get; set; }
         public CategoryInProductDTO categoryInProductDTO { get; set; }
-        public SizeInProductDTO sizeInProductDTO { get; set; }
+        public List<SizeInProductDTO> sizeInProductDTO { get; set; }
         public BrandInProductDTO brandInProductDTO { get; set; }
         public GenderInProductDTO genderInProductDTO { get; set; }
         public StoreInProductDTO storeInProductDTO { get; set; }
