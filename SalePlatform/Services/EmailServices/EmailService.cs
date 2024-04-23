@@ -1,6 +1,6 @@
 ﻿using ClothesSalePlatform.DTOs.EmailDTOs;
-using ClothesSalePlatform.Email;
 using ClothesSalePlatform.Models;
+using ClothesSalePlatform.OtherServices.Email;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing.Template;
 using MimeKit;

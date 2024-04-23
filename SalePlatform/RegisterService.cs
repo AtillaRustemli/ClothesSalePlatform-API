@@ -1,11 +1,13 @@
 ﻿using ClothesSalePlatform.Data;
-using ClothesSalePlatform.Email;
 using ClothesSalePlatform.Mapper;
 using ClothesSalePlatform.Models;
+using ClothesSalePlatform.OtherServices.Email;
+using ClothesSalePlatform.OtherServices.Stripe;
 using ClothesSalePlatform.Services.BrandServices;
 using ClothesSalePlatform.Services.CategoryServices;
 using ClothesSalePlatform.Services.EmailServices;
 using ClothesSalePlatform.Services.JWTServices;
+using ClothesSalePlatform.Services.PaymentServices;
 using ClothesSalePlatform.Services.ProductServices;
 using ClothesSalePlatform.Services.StoreServices;
 using ClothesSalePlatform.Services.SubscribeServices;
@@ -17,6 +19,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Stripe;
 using System.Text;
 
 namespace ClothesSalePlatform
@@ -26,6 +29,9 @@ namespace ClothesSalePlatform
         public static void Register(this IServiceCollection services,IConfiguration config)
         {
             services.AddControllers().AddFluentValidation(opt => opt.RegisterValidatorsFromAssemblyContaining<CreateProductDtoValidator>());
+
+
+            
 
             services.AddDbContext<AppDbContext>(opt =>
             {
@@ -55,7 +61,8 @@ namespace ClothesSalePlatform
 
             services.Configure<EmailConfig>(config.GetSection("EmailSetting"));
             services.AddSingleton<EmailConfig>(config.GetSection("EmailSetting").Get<EmailConfig>());
-
+            services.Configure<StripeSettings>(config.GetSection("Stripe"));
+            StripeConfiguration.ApiKey = config.GetSection("Stripe")["SecretKey"];
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -107,13 +114,17 @@ namespace ClothesSalePlatform
             });
 
 
-            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductService, ProductsService>();
             services.AddScoped<IJWTService, JWTService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<IStoreService, StoreService>();
             services.AddScoped<ISubscribeService, SubscribeService>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<TokenService>();
+            services.AddScoped<CustomerService>();
+            services.AddScoped<ChargeService>();
 
 
         }

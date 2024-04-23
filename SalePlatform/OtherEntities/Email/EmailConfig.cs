@@ -1,4 +1,4 @@
-﻿namespace ClothesSalePlatform.Email
+﻿namespace ClothesSalePlatform.OtherServices.Email
 {
     public class EmailConfig
     {

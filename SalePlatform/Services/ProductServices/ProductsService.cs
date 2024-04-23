@@ -12,13 +12,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClothesSalePlatform.Services.ProductServices
 {
-    public class ProductService : IProductService
+    public class ProductsService : IProductService
     {
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly IEmailService _emailService;
 
-        public ProductService(AppDbContext context, UserManager<AppUser> userManager, IEmailService emailService)
+        public ProductsService(AppDbContext context, UserManager<AppUser> userManager, IEmailService emailService)
         {
             _context = context;
             _userManager = userManager;
