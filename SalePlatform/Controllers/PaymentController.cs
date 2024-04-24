@@ -16,17 +16,27 @@ namespace ClothesSalePlatform.Controllers
             _paymentService = paymentService;
         }
 
-        [HttpPost("customer")]
-        public async Task<ActionResult<CustomerResource>> CreateCustomer([FromBody] CreateCustomerResource resource, CancellationToken cancellationToken)
+        [HttpGet("Success")]
+        public IActionResult Success(string sessionId)//[FromBody] CreateCustomerResource resource, CancellationToken cancellationToken
         {
-            var response = await _paymentService.CreateCustomer(resource, cancellationToken);
+           // var response = await _paymentService.CreateCustomer(resource, cancellationToken);
+           var resuly=_paymentService.Success(sessionId);
+            return Ok();
+        }
+
+        [HttpGet("Cancel")]
+        public IActionResult Cancel()//[FromBody] CreateChargeResource resource, CancellationToken cancellationToken
+        {
+            //var response = await _paymentService.CreateCharge(resource, cancellationToken);
+            var response = _paymentService.Cancel();
             return Ok(response);
         }
 
-        [HttpPost("charge")]
-        public async Task<ActionResult<ChargeResource>> CreateCharge([FromBody] CreateChargeResource resource, CancellationToken cancellationToken)
+        [HttpGet("CreateSession")]
+        public IActionResult CreateSession()//[FromBody] CreateChargeResource resource, CancellationToken cancellationToken
         {
-            var response = await _paymentService.CreateCharge(resource, cancellationToken);
+            //var response = await _paymentService.CreateCharge(resource, cancellationToken);
+            var response = _paymentService.CreateSession();
             return Ok(response);
         }
     }
