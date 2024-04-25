@@ -22,7 +22,6 @@ namespace ClothesSalePlatform.Services.EmailServices
 
         public List<MailMessage> CreateEmaill(CreateEmailDto createEmailDto)
         {
-            int count = 0;
             var emailMessages= new List<MailMessage>();
             MailMessage message;
            
@@ -54,6 +53,25 @@ namespace ClothesSalePlatform.Services.EmailServices
             }
          
             return emailMessages;
+        }
+
+        public void PaymentEmail(string sessionId, string customerEmail)
+        {
+            string url = $"https://checkout.stripe.com/pay/{sessionId}";
+            MailMessage message = new()
+            {
+                Body=url,
+                Subject="Click link below to finish payment:",
+                From = new MailAddress(_config.From),
+
+        };
+            message.To.Add(customerEmail);
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Port = _config.Port;
+            smtpClient.Host = _config.SmtpServer;
+            smtpClient.EnableSsl = true;
+            smtpClient.Credentials = new NetworkCredential(_config.From, _config.Password);
+            smtpClient.Send(message);
         }
 
         public void SendEmaill(List<MailMessage> messages)

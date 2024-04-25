@@ -1,24 +1,28 @@
-﻿using ClothesSalePlatform.Resources;
+﻿using ClothesSalePlatform.Data;
+using ClothesSalePlatform.DTOs.PaymentDTOs;
+using ClothesSalePlatform.Resources;
+using ClothesSalePlatform.Services.EmailServices;
+using Microsoft.AspNetCore.Mvc;
 using Stripe;
+//using Stripe.BillingPortal;
 using Stripe.Checkout;
+using System.Security.Claims;
 
 namespace ClothesSalePlatform.Services.PaymentServices
 {
     public class PaymentService : IPaymentService
     {
 
-        private readonly TokenService _tokenService;
-        private readonly CustomerService _customerService;
-        private readonly ChargeService _chargeService;
+        //private readonly TokenService _tokenService;
+        //private readonly CustomerService _customerService;
+        //private readonly ChargeService _chargeService;
+        private readonly AppDbContext _context;
+        private readonly IEmailService _emailService;
 
-        public PaymentService(
-            TokenService tokenService,
-            CustomerService customerService,
-            ChargeService chargeService)
+        public PaymentService(AppDbContext context, IEmailService emailService)
         {
-            _tokenService = tokenService;
-            _customerService = customerService;
-            _chargeService = chargeService;
+            _context = context;
+            _emailService = emailService;
         }
 
         public string Cancel()
@@ -26,19 +30,48 @@ namespace ClothesSalePlatform.Services.PaymentServices
             return "Payment was cancelled";
         }
 
-        public async Task CreateSession()
+        public  Session CreateSession([FromBody] List<ProducInfoDto> producInfoDto, ClaimsPrincipal user)
         {
-            var options = new Stripe.Checkout.SessionCreateOptions
+            var lineItems = new List<SessionLineItemOptions>();
+            ClothesSalePlatform.Models.Product product;
+            foreach (var item in producInfoDto)
             {
-               
+                product=_context.Products.Where(p=>!p.IsDeleted).FirstOrDefault(p=>p.Id==item.ProductId);   
+                lineItems.Add(
+                     new SessionLineItemOptions
+                     {
+                         PriceData = new SessionLineItemPriceDataOptions
+                         {
+                             Currency = "usd",
+                             ProductData = new SessionLineItemPriceDataProductDataOptions
+                             {
+                                 Name =product.Name,
+                             },
+                             UnitAmount = (int)Math.Round(product.Price*100), // Qəpikdir (100-ə böl)
+                         },
+                         Quantity = item.Quantity,
+                     }
+                    );
+            }
 
-                SuccessUrl = "https://1db6-188-253-221-127.ngrok-free.app/api/payment/success?sessionId={CHECKOUT_SESSION_ID}", 
-                CancelUrl = "https://1db6-188-253-221-127.ngrok-free.app/api/payment/cancel", 
+            var options = new SessionCreateOptions
+            {
+                PaymentMethodTypes = new List<string>
+            {
+                "card",
+            },
+                LineItems = lineItems,
+                Mode = "payment",
+                SuccessUrl = "https://7368-188-253-212-11.ngrok-free.app/api/payment/success?sessionId={CHECKOUT_SESSION_ID}",
+                CancelUrl = "https://7368-188-253-212-11.ngrok-free.app/api/payment/cancel",
+                CustomerEmail= user.FindFirstValue(ClaimTypes.Email)
             };
 
-            // Create the session with the specified options
-            var sessionService = new Stripe.Checkout.SessionService();
-            var session = await sessionService.CreateAsync(options);
+            var service = new SessionService();
+            Session session = service.Create(options);
+            _emailService.PaymentEmail(session.Id, user.FindFirstValue(ClaimTypes.Email));
+            return session;
+           
         }
 
         public Session Success(string sessionId)
@@ -48,10 +81,9 @@ namespace ClothesSalePlatform.Services.PaymentServices
 
             if (session.PaymentStatus == "paid")
             {
-                // Payment is successful. Perform additional operations if needed.
-                // E.g., Update order status, grant product access, etc.
+               
 
-                return session; // Return a success view with relevant information
+                return session; 
             }
             else
             {

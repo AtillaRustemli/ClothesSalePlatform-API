@@ -1,10 +1,11 @@
-﻿using ClothesSalePlatform.Resources;
+﻿using ClothesSalePlatform.DTOs.PaymentDTOs;
 using ClothesSalePlatform.Services.PaymentServices;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClothesSalePlatform.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PaymentController : ControllerBase
@@ -21,6 +22,7 @@ namespace ClothesSalePlatform.Controllers
         {
            // var response = await _paymentService.CreateCustomer(resource, cancellationToken);
            var resuly=_paymentService.Success(sessionId);
+            
             return Ok();
         }
 
@@ -32,11 +34,11 @@ namespace ClothesSalePlatform.Controllers
             return Ok(response);
         }
 
-        [HttpGet("CreateSession")]
-        public IActionResult CreateSession()//[FromBody] CreateChargeResource resource, CancellationToken cancellationToken
+        [HttpPost("CreateSession")]
+        public IActionResult CreateSession([FromBody]List<ProducInfoDto> producInfoDto)//[FromBody] CreateChargeResource resource, CancellationToken cancellationToken
         {
             //var response = await _paymentService.CreateCharge(resource, cancellationToken);
-            var response = _paymentService.CreateSession();
+            var response = _paymentService.CreateSession(producInfoDto,User);
             return Ok(response);
         }
     }

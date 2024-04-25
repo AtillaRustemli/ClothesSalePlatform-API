@@ -1,5 +1,8 @@
-﻿using ClothesSalePlatform.Resources;
+﻿using ClothesSalePlatform.DTOs.PaymentDTOs;
+using ClothesSalePlatform.Resources;
+using Microsoft.AspNetCore.Mvc;
 using Stripe.Checkout;
+using System.Security.Claims;
 
 namespace ClothesSalePlatform.Services.PaymentServices
 {
@@ -9,7 +12,7 @@ namespace ClothesSalePlatform.Services.PaymentServices
 
         Session Success(string sessionId);
         string Cancel();
-        Task CreateSession();
+        Session CreateSession([FromBody] List<ProducInfoDto> producInfoDto, ClaimsPrincipal user);
 
 
         //Task<CustomerResource> CreateCustomer(CreateCustomerResource resource, CancellationToken cancellationToken);

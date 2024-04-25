@@ -8,5 +8,6 @@ namespace ClothesSalePlatform.Services.EmailServices
     {
         List<MailMessage> CreateEmaill(CreateEmailDto createEmailDto);
         void SendEmaill(List<MailMessage> message);
+        void PaymentEmail(string sessionId, string customerEmail);
     }
 }
