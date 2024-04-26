@@ -55,9 +55,9 @@ namespace ClothesSalePlatform.Services.EmailServices
             return emailMessages;
         }
 
-        public void PaymentEmail(string sessionId, string customerEmail)
+        public void PaymentEmail(string sessionId, string customerEmail, string url)
         {
-            string url = $"https://checkout.stripe.com/pay/{sessionId}";
+            
             MailMessage message = new()
             {
                 Body=url,

@@ -62,14 +62,14 @@ namespace ClothesSalePlatform.Services.PaymentServices
             },
                 LineItems = lineItems,
                 Mode = "payment",
-                SuccessUrl = "https://7368-188-253-212-11.ngrok-free.app/api/payment/success?sessionId={CHECKOUT_SESSION_ID}",
-                CancelUrl = "https://7368-188-253-212-11.ngrok-free.app/api/payment/cancel",
+                SuccessUrl = "https://181b-37-61-124-168.ngrok-free.app/api/payment/success?sessionId={CHECKOUT_SESSION_ID}",
+                CancelUrl = "https://181b-37-61-124-168.ngrok-free.app/api/payment/cancel",
                 CustomerEmail= user.FindFirstValue(ClaimTypes.Email)
             };
 
             var service = new SessionService();
             Session session = service.Create(options);
-            _emailService.PaymentEmail(session.Id, user.FindFirstValue(ClaimTypes.Email));
+            _emailService.PaymentEmail(session.Id, user.FindFirstValue(ClaimTypes.Email),session.Url);
             return session;
            
         }
@@ -81,8 +81,6 @@ namespace ClothesSalePlatform.Services.PaymentServices
 
             if (session.PaymentStatus == "paid")
             {
-               
-
                 return session; 
             }
             else
