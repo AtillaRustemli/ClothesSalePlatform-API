@@ -56,6 +56,10 @@ namespace ClothesSalePlatform
                 opt.Password.RequireUppercase = true;
                 opt.Password.RequireNonAlphanumeric = true;
 
+                opt.User.RequireUniqueEmail = true;
+
+                opt.SignIn.RequireConfirmedEmail = true;
+
             }).AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 

@@ -3,6 +3,7 @@ using ClothesSalePlatform.Data;
 using ClothesSalePlatform.DTOs.SubscriberDTOs;
 using ClothesSalePlatform.Models;
 using ClothesSalePlatform.Models.ReletionTables;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -15,10 +16,13 @@ namespace ClothesSalePlatform.Services.SubscribeServices
     public class SubscribeService : ISubscribeService
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public SubscribeService(AppDbContext context)
+
+        public SubscribeService(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public ReturnSubscriberListDto GetAll(IMapper _mapper)
@@ -32,6 +36,7 @@ namespace ClothesSalePlatform.Services.SubscribeServices
                 .Include(s=>s.StoreSubscriber)
                 .ThenInclude(s=>s.Store)
                 .ToList();
+            AppUser user;
             if (subscribers == null) return null;
             ReturnSubscriberListDto returnSubscriberListDto = new()
             {
@@ -54,13 +59,15 @@ namespace ClothesSalePlatform.Services.SubscribeServices
                 {
                     store.ProductCount = _context.Products.Where(s => !s.IsDeleted && s.Store.Name == store.Name).ToList().Count;
                 }
+                user =  _userManager.FindByEmailAsync(subscriber.Email).Result;
+                subscriber.UserName=user.UserName;
             }
 
 
             return returnSubscriberListDto;
         }
 
-        public ReturnSubscriberDto GetOne(int? id, string? name, IMapper _mapper)
+        public ReturnSubscriberDto GetOne(int? id, IMapper _mapper)   
         {
             Subscriber subscriber;
             var query = _context.Subscribers
@@ -78,11 +85,15 @@ namespace ClothesSalePlatform.Services.SubscribeServices
             }
             else
             {
+               
                 return null;
             }
-            if (subscriber == null) return null;
-            var result=_mapper.Map<ReturnSubscriberDto>(subscriber);
 
+            if (subscriber == null) return null;
+            AppUser user = _userManager.FindByEmailAsync(subscriber.Email).Result;
+          
+            var result=_mapper.Map<ReturnSubscriberDto>(subscriber);
+            result.UserName = user.UserName;
             foreach(var brand in result.BrandInSubscriberDto)
                 {
                 brand.ProductCount = _context.Products.Where(s => !s.IsDeleted && s.Brand.Name == brand.Name).ToList().Count;
@@ -100,6 +111,9 @@ namespace ClothesSalePlatform.Services.SubscribeServices
 
         public int SubscribeBrand(int? brandId, ClaimsPrincipal user)
         {
+            if (brandId == null) return 400;
+            var brand=_context.Brand.Where(b=>!b.IsDeleted).FirstOrDefault(b=>b.Id==brandId);
+            if (brand == null) return 404;
             var subscriber = _context.Subscribers
                 .Where(s => !s.IsDeleted)
                 .Include(s=>s.BrandSubscriber)
@@ -113,9 +127,6 @@ namespace ClothesSalePlatform.Services.SubscribeServices
                 };
                 _context.Subscribers.Add(subscriber);
             }
-            if (brandId == null) return 400;
-            var brand=_context.Brand.Where(b=>!b.IsDeleted).FirstOrDefault(b=>b.Id==brandId);
-            if (brand == null) return 404;
             BrandSubscriber brandSubscriber = new()
             {
                 BrandId = brand.Id,

@@ -1,5 +1,4 @@
 ﻿using ClothesSalePlatform.DTOs.PaymentDTOs;
-using ClothesSalePlatform.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Stripe.Checkout;
 using System.Security.Claims;

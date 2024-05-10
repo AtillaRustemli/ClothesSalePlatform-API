@@ -96,9 +96,9 @@ namespace ClothesSalePlatform.Mapper
             //------------------------------------------------------------------------------------------------------------------------
             //-------------------------------------------------Subscriber-------------------------------------------------------------
             CreateMap<Subscriber,ReturnSubscriberDto>()
-                .ForMember(d=>d.BrandInSubscriberDto,map=>map.MapFrom(src=>src.BrandSubscriber.Select(s=>s.Brand)))
-                .ForMember(d=>d.CategoryInSubscriberDto,map=>map.MapFrom(src=>src.CategorySubscriber.Select(s=>s.Category)))
-                .ForMember(d=>d.StoreInSubscriberDto,map=>map.MapFrom(src=>src.StoreSubscriber.Select(s=>s.Store)))
+                .ForMember(d=>d.BrandInSubscriberDto,map=>map.MapFrom(src=>src.BrandSubscriber.Where(sc => !sc.IsDeleted).Select(s=>s.Brand)))
+                .ForMember(d=>d.CategoryInSubscriberDto,map=>map.MapFrom(src=>src.CategorySubscriber.Where(sc => !sc.IsDeleted).Select(s=>s.Category)))
+                .ForMember(d=>d.StoreInSubscriberDto,map=>map.MapFrom(src=>src.StoreSubscriber.Where(sc => !sc.IsDeleted).Select(s=>s.Store)))
                 ;
 
             CreateMap<Brand,BrandInSubscriberDto>();

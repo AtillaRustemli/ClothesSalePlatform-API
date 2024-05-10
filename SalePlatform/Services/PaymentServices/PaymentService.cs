@@ -1,9 +1,7 @@
 ﻿using ClothesSalePlatform.Data;
 using ClothesSalePlatform.DTOs.PaymentDTOs;
-using ClothesSalePlatform.Resources;
 using ClothesSalePlatform.Services.EmailServices;
 using Microsoft.AspNetCore.Mvc;
-using Stripe;
 //using Stripe.BillingPortal;
 using Stripe.Checkout;
 using System.Security.Claims;

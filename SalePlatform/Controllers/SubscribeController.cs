@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ClothesSalePlatform.Models;
 using ClothesSalePlatform.Services.SubscribeServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +14,7 @@ namespace ClothesSalePlatform.Controllers
     {
         private readonly ISubscribeService _subscribeService;
         private readonly IMapper _mapper;
+        
 
         public SubscribeController(ISubscribeService subscribeService, IMapper mapper)
         {
@@ -32,9 +34,9 @@ namespace ClothesSalePlatform.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpGet("GetOne")]
-        public IActionResult Get(int?id,string?name)
+        public IActionResult GetOne(int?id)
         {
-            var result = _subscribeService.GetOne(id,name,_mapper);
+            var result = _subscribeService.GetOne(id,_mapper);
             if(result == null) return NotFound();
             return Ok(result);
         }

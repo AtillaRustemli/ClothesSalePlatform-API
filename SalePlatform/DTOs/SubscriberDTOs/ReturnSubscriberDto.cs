@@ -2,6 +2,7 @@
 {
     public class ReturnSubscriberDto
     {
+        public int Id { get; set; }
         public string Email { get; set; }
         public string UserName { get; set; }
         public List<BrandInSubscriberDto> BrandInSubscriberDto { get; set; }

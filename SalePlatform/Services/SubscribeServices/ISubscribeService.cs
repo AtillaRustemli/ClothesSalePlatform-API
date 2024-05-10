@@ -8,7 +8,7 @@ namespace ClothesSalePlatform.Services.SubscribeServices
     public interface ISubscribeService
     {
         ReturnSubscriberListDto GetAll(IMapper mapper);
-        ReturnSubscriberDto GetOne(int?id,string?name,IMapper mapper);
+        ReturnSubscriberDto GetOne(int?id,IMapper mapper);
         int SubscribeBrand(int? brandId,ClaimsPrincipal user);
         int UnsubscribeBrand(int? brandId,ClaimsPrincipal user);
         int SubscribeCategory(int? categoryId,ClaimsPrincipal user);

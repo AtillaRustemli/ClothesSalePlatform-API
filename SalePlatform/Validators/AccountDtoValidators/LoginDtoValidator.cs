@@ -13,6 +13,7 @@ namespace ClothesSalePlatform.Validators.AccountDtoValidators
             RuleFor(l => l.Password)
                 .NotEmpty().WithMessage("Bosh saxlamaq olmaz!")
                 .MinimumLength(8).WithMessage("Simvol sayi 8-den ashagi olmamalidir!");
+            
         }
     }
 }
