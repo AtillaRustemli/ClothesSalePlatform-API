@@ -104,6 +104,7 @@ namespace ClothesSalePlatform.Mapper
             CreateMap<Brand,BrandInSubscriberDto>();
             CreateMap<Category,CategoryInSubscriberDto>();
             CreateMap<Store,StoreInSubscriberDto>();
+          
 
 
         }

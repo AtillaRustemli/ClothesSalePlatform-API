@@ -34,9 +34,13 @@ namespace ClothesSalePlatform.Validators.ProductValidators
                 .NotEmpty().WithMessage("Bosh saxlamaq olmaz!!")
                 .Custom((p, custom) =>
                 {
+                    if (p != null)
+                    {
                     foreach (var id in p)
                     {
                     if (_context.Size.Where(s => !s.IsDeleted ).FirstOrDefault(s => s.Id == id) == null)  custom.AddFailure("SizeId", "Bele olcu yoxdur!!!!");
+                    }
+
                     }
                 });
             RuleFor(p => p.BrandId)

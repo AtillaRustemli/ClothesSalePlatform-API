@@ -60,8 +60,8 @@ namespace ClothesSalePlatform.Services.PaymentServices
             },
                 LineItems = lineItems,
                 Mode = "payment",
-                SuccessUrl = "https://181b-37-61-124-168.ngrok-free.app/api/payment/success?sessionId={CHECKOUT_SESSION_ID}",
-                CancelUrl = "https://181b-37-61-124-168.ngrok-free.app/api/payment/cancel",
+                SuccessUrl = "https://9f52-5-191-112-88.ngrok-free.app/api/payment/success?sessionId={CHECKOUT_SESSION_ID}",
+                CancelUrl = "https://9f52-5-191-112-88.ngrok-free.app/api/payment/cancel",
                 CustomerEmail= user.FindFirstValue(ClaimTypes.Email)
             };
 
