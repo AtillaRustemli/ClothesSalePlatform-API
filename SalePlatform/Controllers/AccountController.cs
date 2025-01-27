@@ -144,7 +144,7 @@ namespace ClothesSalePlatform.Controllers
             await _signInManager.SignInAsync(user, true);
             return Ok(new {Email=email,Token=token});   
         }
-
+     
 
     }
 }

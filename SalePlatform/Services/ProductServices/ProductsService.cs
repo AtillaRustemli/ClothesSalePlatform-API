@@ -7,7 +7,6 @@ using ClothesSalePlatform.Models;
 using ClothesSalePlatform.Models.ReletionTables;
 using ClothesSalePlatform.Services.EmailServices;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClothesSalePlatform.Services.ProductServices
@@ -52,7 +51,6 @@ namespace ClothesSalePlatform.Services.ProductServices
                 {
                     size.ProductCount = _context.ProductSize.Where(ps => !ps.IsDeleted && ps.Size.Name == size.Name&&!ps.Product.IsDeleted).ToList().Count;
                 }
-
 
             }
             returnProductList.Items=returnProductList.Items

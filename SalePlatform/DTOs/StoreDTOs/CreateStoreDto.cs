@@ -2,6 +2,7 @@
 using ClothesSalePlatform.Models.ReletionTables;
 
 using ClothesSalePlatform.Models;
+using ClothesSalePlatform.Enums;
 
 namespace ClothesSalePlatform.DTOs.StoreDTOs
 {
@@ -15,5 +16,6 @@ namespace ClothesSalePlatform.DTOs.StoreDTOs
         public string ClosingHours { get; set; }
         public List<int> Brands { get; set; }
         public List<int> Categories { get; set; }
+        public ChoiceEnum Choice { get; set; }
     }
 }
