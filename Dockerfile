@@ -2,13 +2,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
-# Copy only the .csproj file and restore dependencies
-COPY SaleStore-Api/SalePlatform/SalePlatform/*.csproj ./SalePlatform/
+# Copy the .csproj file and restore dependencies
+COPY SalePlatform/SalePlatform/*.csproj ./SalePlatform/
 WORKDIR /app/SalePlatform
 RUN dotnet restore
 
-# Copy the rest of the files and build the project
-COPY SaleStore-Api/SalePlatform/SalePlatform/. ./
+# Copy the rest of the files and build the app
+COPY SalePlatform/SalePlatform/. ./
 RUN dotnet publish -c Release -o /out
 
 # Use the .NET runtime for the final image
