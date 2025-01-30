@@ -1,0 +1,28 @@
+﻿# Base stage - Use .NET runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+# Build stage - Use .NET SDK
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy project file and restore dependencies
+COPY SalePlatform/SalePlatform/*.csproj ./SalePlatform/
+WORKDIR /src/SalePlatform
+RUN dotnet restore ClothesSalePlatform.csproj
+
+# Copy everything and build the project
+COPY SalePlatform/SalePlatform/. ./SalePlatform/
+RUN dotnet build ClothesSalePlatform.csproj -c Release -o /app/build
+
+# Publish stage
+FROM build AS publish
+RUN dotnet publish ClothesSalePlatform.csproj -c Release -o /app/publish /p:UseAppHost=false
+
+# Final stage - Run the optimized application
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "ClothesSalePlatform.dll"]
