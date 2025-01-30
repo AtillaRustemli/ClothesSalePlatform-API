@@ -2,6 +2,6 @@
 bin/
 obj/
 .dockerignore
-Dockerfile
+
 
 .vs/
