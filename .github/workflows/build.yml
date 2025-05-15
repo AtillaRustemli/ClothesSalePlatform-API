@@ -1,0 +1,42 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build DEV
+
+on:
+  pull_request:
+    branches: [ "main", "dev" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Display Branch Name
+        run: |
+            echo "Event name: ${{ github.event_name }}"
+            echo "Base branch: ${{ github.base_ref }}" # Target branch (e.g., dev)
+            echo "Source branch: ${{ github.head_ref }}" # Source branch (e.g., huba)
+            echo "Ref name: ${{ github.ref_name }}"
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: true  # Initialize and update submodules
+          fetch-depth: 0     # Ensure full history for accurate submodule state
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GH_PAT}}
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.x'
+          include-prerelease: true
+
+      - name: Build with dotnet
+        run: dotnet build SalePlatform/ClothesSalePlatform.csproj --configuration Release
+
+      - name: dotnet publish
+        run: dotnet publish SalePlatform/ClothesSalePlatform.csproj  -c Release -o ${{env.DOTNET_ROOT}}/myapp /p:EnvironmentName=Development
