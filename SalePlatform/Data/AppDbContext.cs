@@ -2,13 +2,15 @@
 using ClothesSalePlatform.Models.ReletionTables;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
 
 namespace ClothesSalePlatform.Data
 {
-    public class AppDbContext: IdentityDbContext<AppUser>
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
-        public AppDbContext(DbContextOptions options):base(options) { }
+        public AppDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<Brand> Brand { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -56,20 +58,19 @@ namespace ClothesSalePlatform.Data
             //modelBuilder.ApplyConfiguration(new ProductConfiguration());
 
             builder.Entity<Product>()
-          .HasOne(p => p.Brand)          
-          .WithMany(b => b.Products)     
-          .HasForeignKey(p => p.BrandId) 
-          .IsRequired();
+                .HasOne(p => p.Brand)
+                .WithMany(b => b.Products)
+                .HasForeignKey(p => p.BrandId)
+                .IsRequired();
             builder.Entity<Brand>()
-          .HasMany(p => p.Products)          
-          .WithOne(b => b.Brand)     
-          .HasForeignKey(p => p.BrandId) 
-          .IsRequired();
+                .HasMany(p => p.Products)
+                .WithOne(b => b.Brand)
+                .HasForeignKey(p => p.BrandId)
+                .IsRequired();
 
 
             builder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
             base.OnModelCreating(builder);
         }
-
     }
 }
